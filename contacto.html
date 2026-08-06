@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto — Cinema Norte</title>
+<meta name="description" content="Cuéntanos de su boda en Torreón o la Comarca Lagunera y les responderemos pronto para platicar de su fecha.">
+<link rel="icon" type="image/svg+xml" href="assets/logos/Logo_Badge.svg">
+<link rel="canonical" href="/contacto.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav is-dark">
+  <div class="nav-logo"><a href="index.html"><img src="assets/logos/Logo_Horizontal_Blanco.svg" alt="Cinema Norte"></a></div>
+  <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="portafolio.html">Portafolio</a></li>
+    <li><a href="preguntas.html">Preguntas</a></li>
+    <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-header contact-header">
+    <div class="eyebrow">Contacto</div>
+    <h1 class="h1">Cuéntanos de su boda</h1>
+    <p>Trabajamos bodas en Torreón y la Comarca Lagunera. Cupo limitado por fecha — cuanto antes escriban, mejor.</p>
+  </div>
+
+  <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="d2425ae0-33de-4536-b093-91a961216e8b">
+    <input type="hidden" name="subject" value="Nueva solicitud de boda — Cinema Norte">
+    <input type="hidden" name="from_name" value="Formulario Cinema Norte">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <div class="form-note">* Campo obligatorio (requerido)</div>
+
+    <div class="form-row">
+      <label class="field">Nombre de la novia *
+        <input type="text" name="novia" required>
+      </label>
+      <label class="field">Nombre del novio *
+        <input type="text" name="novio" required>
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label class="field">Fecha de la boda *
+        <input type="date" name="fecha" required>
+      </label>
+      <label class="field">Lugar / salón *
+        <input type="text" name="lugar" placeholder="Ej. Quinta Real, Torreón" required>
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label class="field">Correo *
+        <input type="email" name="correo" required>
+      </label>
+      <label class="field">Teléfono / WhatsApp *
+        <input type="tel" name="telefono" required>
+      </label>
+    </div>
+
+    <label class="field">¿Cómo se enteraron de nosotros? *
+      <input type="text" name="origen" placeholder="Instagram, recomendación, otro..." required>
+    </label>
+
+    <label class="field">Cuéntenos un poco de su boda *
+      <textarea name="mensaje" rows="4" required></textarea>
+    </label>
+
+    <div class="form-error"></div>
+    <button type="submit" class="btn-outline form-submit">Enviar solicitud</button>
+  </form>
+
+  <div id="thank-you" class="thank-you" hidden>
+    <h2>¡Gracias!</h2>
+    <p>Recibimos su solicitud. Les responderemos muy pronto para platicar de su fecha.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-top">
+    <img class="footer-logo" src="assets/logos/Logo_Single_Blanco.svg" alt="Cinema Norte">
+    <ul class="footer-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="portafolio.html">Portafolio</a></li>
+      <li><a href="preguntas.html">Preguntas</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+  <div class="footer-wordmark">
+    <img src="assets/logos/Logo_Horizontal_Blanco.svg" alt="Cinema Norte">
+  </div>
+  <div class="footer-bottom">© 2026 Cinema Norte. Todos los derechos reservados.</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
