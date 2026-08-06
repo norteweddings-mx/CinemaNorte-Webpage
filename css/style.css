@@ -341,7 +341,7 @@ button{font-family:inherit;}
 .footer-logo{height:32px;}
 .footer-links{display:flex;gap:30px;flex-wrap:wrap;font-family:var(--font-alt);font-size:13px;list-style:none;margin:0;padding:0;}
 .footer-links a{color:inherit;}
-.footer-contact{display:flex;gap:24px;flex-wrap:wrap;font-family:var(--font-alt);font-size:13px;}
+.footer-contact{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-family:var(--font-alt);font-size:13px;letter-spacing:0.04em;margin-top:36px;}
 .footer-contact a{color:inherit;opacity:0.85;}
 .footer-contact a:hover{opacity:1;}
 .footer-wordmark{max-width:1200px;margin:0 auto;text-align:center;}
