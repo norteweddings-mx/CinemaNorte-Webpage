@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,8 +49,8 @@
       <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(70% 0 0);">Panel de entregas</div>
       <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:{{ statusColor }};">● {{ status }}</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #2a2a2a;">
-      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #2a2a2a;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
         <div onClick="{{ t.select }}" style="cursor:pointer;padding:14px 0;text-align:center;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:{{ t.color }};border-bottom:2px solid {{ t.line }};margin-bottom:-1px;">{{ t.label }}</div>
       </sc-for>
     </div>
@@ -289,6 +289,52 @@
   </section>
   </sc-if>
 
+  <sc-if value="{{ isFilms }}" hint-placeholder-val="{{ false }}">
+  <main data-scroll style="grid-column:2 / -1;overflow:auto;padding:32px 36px 80px;display:flex;flex-direction:column;gap:24px;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#535353;">{{ filmsSummary }}</div>
+        <div style="font-family:'Romie',serif;font-style:italic;font-size:38px;line-height:1;">Wedding Films</div>
+      </div>
+      <div onClick="{{ addFilm }}" style="cursor:pointer;display:flex;align-items:center;gap:14px;background:#101010;color:#EBEBEB;padding:12px 18px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;" style-hover="background:#353535;">Agregar film <span style="font-size:16px;">+</span></div>
+    </div>
+    <div style="font-size:13px;line-height:1.6;color:#535353;max-width:620px;">Elige dónde aparece cada film. Inicio muestra hasta 6, en el orden de esta lista. Los cambios se guardan solos.</div>
+    <sc-if value="{{ hasFilmsError }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:16px 18px;background:oklch(94% 0.04 25);color:oklch(40% 0.14 25);font-size:13px;line-height:1.6;">{{ filmsError }}</div>
+    </sc-if>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <sc-for list="{{ filmsRows }}" as="f" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid oklch(85% 0 0);padding:16px;display:grid;grid-template-columns:36px 200px minmax(0,1fr) auto;gap:20px;align-items:center;opacity:{{ f.op }};">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div onClick="{{ f.up }}" style="cursor:pointer;padding:2px 8px;font-size:14px;opacity:{{ f.upOp }};">↑</div>
+            <div style="font-size:12px;letter-spacing:0.08em;">{{ f.num }}</div>
+            <div onClick="{{ f.down }}" style="cursor:pointer;padding:2px 8px;font-size:14px;opacity:{{ f.downOp }};">↓</div>
+          </div>
+          <label style="position:relative;display:block;width:200px;aspect-ratio:16/9;background:oklch(92% 0 0);overflow:hidden;cursor:pointer;">
+            <sc-if value="{{ f.hasCover }}" hint-placeholder-val="{{ false }}"><img src="{{ f.cover }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></sc-if>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:6px 8px;background:rgba(16,16,16,0.7);color:#EBEBEB;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;text-align:center;">{{ f.coverLabel }}</div>
+            <input type="file" accept="image/*" onChange="{{ f.upload }}" style="display:none;">
+          </label>
+          <div style="display:grid;grid-template-columns:minmax(0,2fr) 90px;gap:10px;">
+            <input type="text" value="{{ f.title }}" onChange="{{ f.onTitle }}" placeholder="Pareja (Perla & Ricardo)" style="background:#F5F5F5;border:1px solid oklch(86% 0 0);padding:10px;font-size:13px;font-family:'DM Sans';color:#101010;width:100%;box-sizing:border-box;">
+            <input type="text" value="{{ f.year }}" onChange="{{ f.onYear }}" placeholder="Año" style="background:#F5F5F5;border:1px solid oklch(86% 0 0);padding:10px;font-size:13px;font-family:'DM Sans';color:#101010;width:100%;box-sizing:border-box;">
+            <input type="text" value="{{ f.url }}" onChange="{{ f.onUrl }}" placeholder="https://galleries.vidflow.co/videos/…" style="grid-column:1 / -1;background:#F5F5F5;border:1px solid oklch(86% 0 0);padding:10px;font-size:13px;font-family:'DM Sans';color:#101010;width:100%;box-sizing:border-box;">
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;">
+            <div style="display:flex;border:1px solid #101010;">
+              <sc-for list="{{ f.places }}" as="pl" hint-placeholder-count="4">
+                <div onClick="{{ pl.select }}" style="cursor:pointer;padding:6px 9px;background:{{ pl.bg }};color:{{ pl.fg }};white-space:nowrap;">{{ pl.label }}</div>
+              </sc-for>
+            </div>
+            <div style="color:#535353;white-space:nowrap;min-height:12px;">{{ f.where }}</div>
+            <div onClick="{{ f.del }}" style="cursor:pointer;padding:2px 0;border-bottom:1px solid currentColor;color:oklch(45% 0.15 25);">Eliminar</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </main>
+  </sc-if>
+
   <sc-if value="{{ isResenas }}" hint-placeholder-val="{{ false }}">
   <main data-scroll style="grid-column:2 / -1;overflow:auto;padding:32px 36px 80px;display:flex;flex-direction:column;gap:28px;">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;">
@@ -312,7 +358,19 @@
             <div style="font-size:18px;letter-spacing:2px;">{{ r.stars }}</div>
             <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;padding:5px 8px;background:{{ r.badgeBg }};color:{{ r.badgeColor }};">{{ r.badge }}</div>
           </div>
-          <div style="font-family:'Romie',serif;font-style:italic;font-size:22px;line-height:1.1;">{{ r.couple }}</div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="position:relative;width:64px;aspect-ratio:5/6;border-radius:50%;overflow:hidden;background:oklch(90% 0 0);flex:0 0 auto;display:flex;align-items:center;justify-content:center;">
+              <sc-if value="{{ r.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ r.photo }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></sc-if>
+              <sc-if value="{{ r.noPhoto }}" hint-placeholder-val="{{ true }}"><div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#757575;text-align:center;">Sin foto</div></sc-if>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="font-family:'Romie',serif;font-style:italic;font-size:22px;line-height:1.1;">{{ r.couple }}</div>
+              <div style="display:flex;gap:14px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;">
+                <label style="cursor:pointer;border-bottom:1px solid #101010;padding:2px 0;">{{ r.photoLabel }}<input type="file" accept="image/*" onChange="{{ r.upload }}" style="display:none;"></label>
+                <sc-if value="{{ r.hasPhoto }}" hint-placeholder-val="{{ false }}"><div onClick="{{ r.removePhoto }}" style="cursor:pointer;color:#535353;border-bottom:1px solid currentColor;padding:2px 0;">Quitar foto</div></sc-if>
+              </div>
+            </div>
+          </div>
           <div style="font-size:14px;line-height:1.6;color:#353535;white-space:pre-line;">{{ r.text }}</div>
           <div style="font-size:11px;letter-spacing:0.06em;color:#535353;">{{ r.meta }}</div>
           <div style="display:flex;gap:16px;padding-top:12px;border-top:1px solid oklch(90% 0 0);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;">
@@ -386,6 +444,10 @@ const GROUPS = [
   ]},
 ];
 
+const DEFAULT_FILMS = [
+  ["Perla & Ricardo", "2026", "scxo5rx8"], ["Melissa & Jose Luis", "2026", "wq7kv7xq"], ["Alejandra & David", "2025", "2584c1d2"],
+  ["Naid & Roberto", "2025", "f63291b6"], ["Sofía & Luis", "2025", "da2b8f37"], ["Amaranta & Roberto", "2025", "eeab3038"], ["Mariel & Josué", "2025", "jhl7ryde"],
+].map(([title, year, id], position) => ({ title, year, url: "https://galleries.vidflow.co/videos/" + id, position, visible: true, placement: position < 6 ? "ambos" : "portafolio" }));
 class Component extends DCLogic {
   state = this.init();
   timers = {};
@@ -397,7 +459,7 @@ class Component extends DCLogic {
     try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && d.baseUrl) baseUrl = d.baseUrl; if (d && d.waNumber) waNumber = d.waNumber; } catch (e) {}
     return { waNumber, session, items: [], current: null, baseUrl, status: session ? "Conectando…" : "", copied: false, loading: !!session };
   }
-  componentDidMount() { if (this.state.session) { this.fetchAll(); this.fetchReviews(); this.fetchCotiz(); } }
+  componentDidMount() { if (this.state.session) { this.fetchAll(); this.fetchReviews(); this.fetchCotiz(); this.fetchFilms(); } }
   async fetchCotiz() {
     try {
       const [rows, leads, reservas] = await Promise.all([
@@ -446,6 +508,86 @@ class Component extends DCLogic {
   async setApproved(id, approved) {
     this.setState({ reviews: (this.state.reviews || []).map((r) => (r.id === id ? { ...r, approved } : r)) });
     try { await this.api("resenas?id=eq." + id, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ approved }) }); } catch (e) { this.fetchReviews(); }
+  }
+  async fetchFilms() {
+    try {
+      let rows = await this.api("films?select=*&order=position.asc");
+      if (!rows || !rows.length) rows = await this.api("films", { method: "POST", headers: { Prefer: "return=representation" }, body: JSON.stringify(DEFAULT_FILMS) });
+      this.setState({ films: rows || [], filmsError: "" });
+    } catch (e) {
+      if (String(e.message) === "401") return;
+      this.setState({ films: [], filmsError: "No encontré la tabla de films en Supabase. Corre el SQL de configuración para activar este apartado." });
+    }
+  }
+  filmPatch(id, patch, now) {
+    this.setState({ films: (this.state.films || []).map((f) => (f.id === id ? { ...f, ...patch } : f)), status: "Guardando…" });
+    this._fp = this._fp || {}; this._fp[id] = { ...(this._fp[id] || {}), ...patch };
+    clearTimeout(this.timers["f" + id]);
+    this.timers["f" + id] = setTimeout(async () => {
+      const body = this._fp[id]; delete this._fp[id];
+      try { await this.api("films?id=eq." + id, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify(body) }); this.setState({ status: "Guardado" }); }
+      catch (e) { this.setState({ status: "Error al guardar" }); }
+    }, now ? 0 : 700);
+  }
+  async addFilm() {
+    const l = this.state.films || [];
+    const position = l.reduce((m, f) => Math.max(m, f.position || 0), -1) + 1;
+    try {
+      const rows = await this.api("films", { method: "POST", headers: { Prefer: "return=representation" }, body: JSON.stringify({ title: "", year: String(new Date().getFullYear()), url: "", position, visible: true, placement: "ambos" }) });
+      this.setState({ films: [...l, ...(rows || [])] });
+    } catch (e) { alert("No se pudo agregar: " + e.message); }
+  }
+  moveFilm(k, dir) {
+    const l = [...(this.state.films || [])]; const j = k + dir;
+    if (j < 0 || j >= l.length) return;
+    [l[k], l[j]] = [l[j], l[k]];
+    l.forEach((f, i) => { if (f.position !== i) this.filmPatch(f.id, { position: i }, true); });
+    this.setState({ films: l.map((f, i) => ({ ...f, position: i })) });
+  }
+  async delFilm(f) {
+    if (!confirm("¿Eliminar " + (f.title || "este film") + "?")) return;
+    this.setState({ films: (this.state.films || []).filter((x) => x.id !== f.id) });
+    try { await this.api("films?id=eq." + f.id, { method: "DELETE" }); } catch (e) { this.fetchFilms(); }
+  }
+  async uploadFilmCover(id, file) {
+    if (!file) return;
+    this.setState({ uploadingFilm: id });
+    try {
+      const blob = await this.shrinkImage(file, 1800);
+      const t = await this.token();
+      const path = id + "-" + Date.now() + ".jpg";
+      const r = await fetch(SB_URL + "/storage/v1/object/films/" + path, { method: "POST", headers: { apikey: SB_KEY, Authorization: "Bearer " + t, "Content-Type": "image/jpeg", "x-upsert": "true" }, body: blob });
+      if (!r.ok) throw new Error((await r.json().catch(() => ({}))).message || r.status);
+      this.filmPatch(id, { cover_url: SB_URL + "/storage/v1/object/public/films/" + path }, true);
+    } catch (e) { alert("No se pudo subir la portada: " + e.message); }
+    this.setState({ uploadingFilm: null });
+  }
+  async setPhoto(id, photo_url) {
+    this.setState({ reviews: (this.state.reviews || []).map((r) => (r.id === id ? { ...r, photo_url } : r)) });
+    try { await this.api("resenas?id=eq." + id, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ photo_url }) }); } catch (e) { this.fetchReviews(); }
+  }
+  async shrinkImage(file, max = 900) {
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = url; });
+      const s = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas"); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      return await new Promise((ok) => c.toBlob(ok, "image/jpeg", 0.85));
+    } finally { URL.revokeObjectURL(url); }
+  }
+  async uploadPhoto(id, file) {
+    if (!file) return;
+    this.setState({ uploading: id });
+    try {
+      const blob = await this.shrinkImage(file);
+      const t = await this.token();
+      const path = id + "-" + Date.now() + ".jpg";
+      const r = await fetch(SB_URL + "/storage/v1/object/resenas/" + path, { method: "POST", headers: { apikey: SB_KEY, Authorization: "Bearer " + t, "Content-Type": "image/jpeg", "x-upsert": "true" }, body: blob });
+      if (!r.ok) throw new Error((await r.json().catch(() => ({}))).message || r.status);
+      await this.setPhoto(id, SB_URL + "/storage/v1/object/public/resenas/" + path);
+    } catch (e) { alert("No se pudo subir la foto: " + e.message); }
+    this.setState({ uploading: null });
   }
   async delReview(id) {
     if (!confirm("¿Eliminar esta reseña?")) return;
@@ -592,6 +734,31 @@ class Component extends DCLogic {
     return {
       ...gate,
       isEntregas: tab === "entregas",
+      isFilms: tab === "films",
+      ...(() => {
+        const fl = this.state.films || [];
+        let home = 0;
+        const rows = fl.map((f, k) => {
+          const pm = f.visible === false ? "oculto" : (f.placement || "ambos");
+          const vis = pm !== "oculto"; const inHome = pm === "inicio" || pm === "ambos"; if (inHome) home++;
+          return {
+            ...f, num: String(k + 1).padStart(2, "0"), cover: f.cover_url || "", hasCover: !!f.cover_url,
+            coverLabel: this.state.uploadingFilm === f.id ? "Subiendo…" : (f.cover_url ? "Cambiar portada" : "Subir portada"),
+            upload: (e) => { const file = e.target.files && e.target.files[0]; e.target.value = ""; this.uploadFilmCover(f.id, file); },
+            onTitle: (e) => this.filmPatch(f.id, { title: e.target.value }),
+            onYear: (e) => this.filmPatch(f.id, { year: e.target.value }),
+            onUrl: (e) => this.filmPatch(f.id, { url: e.target.value.trim() }),
+            places: [["inicio", "Inicio"], ["portafolio", "Portafolio"], ["ambos", "Ambos"], ["oculto", "Oculto"]].map(([k2, label]) => ({
+              label, bg: pm === k2 ? "#101010" : "transparent", fg: pm === k2 ? "#EBEBEB" : "#101010",
+              select: () => this.filmPatch(f.id, { placement: k2, visible: k2 !== "oculto" }, true),
+            })),
+            where: inHome && home > 6 ? "Inicio muestra solo 6" : "",
+            op: vis ? 1 : 0.5, upOp: k > 0 ? 1 : 0.2, downOp: k < fl.length - 1 ? 1 : 0.2,
+            up: () => this.moveFilm(k, -1), down: () => this.moveFilm(k, 1), del: () => this.delFilm(f),
+          };
+        });
+        return { filmsRows: rows, filmsSummary: fl.length + " films · " + Math.min(home, 6) + " en Inicio", addFilm: () => this.addFilm(), filmsError: this.state.filmsError || "", hasFilmsError: !!this.state.filmsError };
+      })(),
       isResenas: tab === "resenas",
       isCotiz: tab === "cotiz",
       hasLeads: leadsL.length > 0,
@@ -690,9 +857,9 @@ class Component extends DCLogic {
           toggle: () => this.pPatch((x) => { const a = x.addons || []; x.addons = a.includes(id) ? a.filter((y) => y !== id) : [...a, id]; return x; }),
         };
       }),
-      tabs: [["entregas", "Entregas"], ["cotiz", leadsL.length ? `Cotizar (${leadsL.length})` : "Cotizar"], ["resenas", pending ? `Reseñas (${pending})` : "Reseñas"]].map(([k, label]) => ({
+      tabs: [["entregas", "Entregas"], ["cotiz", leadsL.length ? `Cotizar (${leadsL.length})` : "Cotizar"], ["films", "Films"], ["resenas", pending ? `Reseñas (${pending})` : "Reseñas"]].map(([k, label]) => ({
         label, color: tab === k ? "#EBEBEB" : "oklch(60% 0 0)", line: tab === k ? "#EBEBEB" : "transparent",
-        select: () => { this.setState({ tab: k }); if (k === "resenas") this.fetchReviews(); if (k === "cotiz") this.fetchCotiz(); },
+        select: () => { this.setState({ tab: k }); if (k === "resenas") this.fetchReviews(); if (k === "cotiz") this.fetchCotiz(); if (k === "films") this.fetchFilms(); },
       })),
       reviewSummary: `${allR.length} en total · ${pending} por aprobar`,
       reviewFilters: [["pendientes", "Por aprobar"], ["aprobadas", "Aprobadas"], ["todas", "Todas"]].map(([k, label]) => ({
@@ -711,6 +878,10 @@ class Component extends DCLogic {
         toggleLabel: r.approved ? "Quitar aprobación" : (r.publish_ok ? "Aprobar y publicar" : "Aprobar"),
         toggle: () => this.setApproved(r.id, !r.approved),
         del: () => this.delReview(r.id),
+        photo: r.photo_url || "", hasPhoto: !!r.photo_url, noPhoto: !r.photo_url,
+        photoLabel: this.state.uploading === r.id ? "Subiendo…" : (r.photo_url ? "Cambiar foto" : "Subir foto de la pareja"),
+        upload: (e) => { const f = e.target.files && e.target.files[0]; e.target.value = ""; this.uploadPhoto(r.id, f); },
+        removePhoto: () => this.setPhoto(r.id, null),
       })),
       copyReviewLabel: this.state.copiedR ? "Copiado ✓" : "Copiar enlace de reseña",
       copyReviewLink: () => copy(reviewLink, "copiedR"),
