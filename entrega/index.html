@@ -48,17 +48,17 @@
   <sc-if value="{{ remoteMissing }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;inset:0;z-index:60;background:#101010;color:#EBEBEB;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:24px;text-align:center;">
       <img src="/assets/logo-badge.svg" alt="Cinema Norte" style="height:80px;filter:brightness(0) invert(1);"/>
-      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(30px,5vw,44px);">No encontramos esta entrega</div>
-      <div style="font-size:14px;line-height:1.6;color:oklch(78% 0 0);max-width:380px;">Revisa que el enlace esté completo o escríbenos y te lo mandamos de nuevo.</div>
+      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(32px,4vw,56px);">No encontramos esta entrega</div>
+      <div style="font-size:13px;line-height:1.6;color:oklch(78% 0 0);max-width:380px;">Revisa que el enlace esté completo o escríbenos y te lo mandamos de nuevo.</div>
       <a href="https://cinemanorte.com" style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;border-bottom:1px solid #EBEBEB;padding-bottom:4px;">cinemanorte.com</a>
     </div>
   </sc-if>
   <sc-if value="{{ locked }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;inset:0;z-index:50;background:#101010;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;padding:24px;text-align:center;">
       <img src="/assets/logo-badge.svg" alt="Cinema Norte" style="height:80px;filter:brightness(0) invert(1);"/>
-      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(34px,6vw,56px);line-height:1.1;">{{ couple }}</div>
+      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(32px,4vw,56px);line-height:1.1;">{{ couple }}</div>
       <form onSubmit="{{ onUnlock }}" style="display:flex;flex-direction:column;align-items:center;gap:18px;width:min(100%,320px);">
-        <input type="password" placeholder="Contraseña" value="{{ pwInput }}" onChange="{{ onPwChange }}" style="width:100%;background:transparent;border:0;border-bottom:1px solid oklch(55% 0 0);color:#EBEBEB;font-family:'DM Sans';font-size:15px;letter-spacing:0.08em;text-align:center;padding:10px 0;outline:none;"/>
+        <input type="password" placeholder="Contraseña" value="{{ pwInput }}" onChange="{{ onPwChange }}" style="width:100%;background:transparent;border:0;border-bottom:1px solid oklch(55% 0 0);color:#EBEBEB;font-family:'DM Sans';font-size:16px;letter-spacing:0.08em;text-align:center;padding:10px 0;outline:none;"/>
         <button type="submit" style="background:none;border:0;color:#EBEBEB;font-family:'DM Sans';font-size:12px;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;padding:8px 0;border-bottom:1px solid #EBEBEB;">Entrar</button>
         <div style="font-size:12px;letter-spacing:0.08em;color:oklch(70% 0.12 25);min-height:16px;">{{ pwError }}</div>
       </form>
@@ -79,13 +79,13 @@
     </div>
     <div data-pad style="position:absolute;left:0;right:0;bottom:0;padding:0 56px 56px;display:flex;flex-direction:column;gap:22px;">
       <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">Una película de Cinema Norte</div>
-      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(56px,11vw,168px);line-height:0.95;letter-spacing:-0.01em;text-wrap:balance;">{{ couple }}</div>
+      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(56px,9vw,140px);line-height:0.95;letter-spacing:-0.01em;text-wrap:balance;">{{ couple }}</div>
       <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;border-top:1px solid rgba(235,235,235,0.35);padding-top:18px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;">
         <div style="display:flex;flex-wrap:wrap;gap:8px 32px;">
           <span>{{ date }}</span>
           <span>{{ venue }}</span>
         </div>
-        <a href="#pelicula" onClick="{{ goFilm }}" style="display:flex;align-items:center;gap:10px;">Ver su película <span style="font-size:15px;">↓</span></a>
+        <a href="#pelicula" onClick="{{ goFilm }}" style="display:flex;align-items:center;gap:10px;">Ver su película <span style="font-size:16px;">↓</span></a>
       </div>
     </div>
   </section>
@@ -94,9 +94,9 @@
     <div data-split style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:64px;max-width:1240px;margin:0 auto;">
       <div data-reveal style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">01 / Para ustedes</div>
       <div style="display:flex;flex-direction:column;gap:36px;">
-        <div data-reveal style="font-family:'Romie',serif;font-size:clamp(30px,4vw,50px);line-height:1.25;text-wrap:pretty;">{{ letterLead }}</div>
-        <div data-reveal style="font-size:17px;line-height:1.7;max-width:600px;color:#353535;text-wrap:pretty;white-space:pre-line;">{{ letterBody }}</div>
-        <div data-reveal style="font-family:'Romie',serif;font-style:italic;font-size:24px;">— {{ signature }}</div>
+        <div data-reveal style="font-family:'Romie',serif;font-size:clamp(32px,4vw,56px);line-height:1.25;text-wrap:pretty;">{{ letterLead }}</div>
+        <div data-reveal style="font-size:16px;line-height:1.7;max-width:600px;color:#353535;text-wrap:pretty;white-space:pre-line;">{{ letterBody }}</div>
+        <div data-reveal style="font-family:'Romie',serif;font-style:italic;font-size:clamp(18px,1.7vw,22px);">— {{ signature }}</div>
       </div>
     </div>
   </section>
@@ -113,7 +113,7 @@
 
     <div data-pad style="position:relative;padding:0 56px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;max-width:780px;">
       <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">La boda de</div>
-      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(52px,8vw,112px);line-height:0.95;text-wrap:balance;">{{ couple }}</div>
+      <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(56px,9vw,140px);line-height:0.95;text-wrap:balance;">{{ couple }}</div>
       <div style="font-size:16px;line-height:1.6;max-width:440px;color:oklch(85% 0 0);text-wrap:pretty;">{{ filmIntro }}</div>
     </div>
 
@@ -121,8 +121,8 @@
       <div data-pad style="padding:0 56px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
         <div style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;">{{ hoverTitle }}</div>
         <div data-hide-m style="display:flex;gap:10px;">
-          <div onClick="{{ rowPrev }}" style="cursor:pointer;width:36px;height:36px;border-radius:50%;border:1px solid rgba(235,235,235,0.4);display:flex;align-items:center;justify-content:center;font-size:14px;" style-hover="border-color:#EBEBEB;">←</div>
-          <div onClick="{{ rowNext }}" style="cursor:pointer;width:36px;height:36px;border-radius:50%;border:1px solid rgba(235,235,235,0.4);display:flex;align-items:center;justify-content:center;font-size:14px;" style-hover="border-color:#EBEBEB;">→</div>
+          <div onClick="{{ rowPrev }}" style="cursor:pointer;width:36px;height:36px;border-radius:50%;border:1px solid rgba(235,235,235,0.4);display:flex;align-items:center;justify-content:center;font-size:13px;" style-hover="border-color:#EBEBEB;">←</div>
+          <div onClick="{{ rowNext }}" style="cursor:pointer;width:36px;height:36px;border-radius:50%;border:1px solid rgba(235,235,235,0.4);display:flex;align-items:center;justify-content:center;font-size:13px;" style-hover="border-color:#EBEBEB;">→</div>
         </div>
       </div>
       <div ref="{{ rowRef }}" data-row style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 56px;padding:10px 56px;scrollbar-width:none;">
@@ -130,8 +130,8 @@
           <div onClick="{{ v.open }}" onMouseEnter="{{ v.hover }}" style="flex:0 0 clamp(240px,27vw,400px);scroll-snap-align:start;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;background:radial-gradient(120% 120% at 20% 0%, #2a2a2a 0%, #161616 60%) center/cover no-repeat;background-image:{{ v.thumbBg }};outline:1px solid {{ v.outline }};outline-offset:3px;transition:transform .35s ease;" style-hover="transform:scale(1.03);">
             <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(16,16,16,0) 40%, rgba(16,16,16,0.85) 100%);"></div>
             <div style="position:absolute;left:16px;right:16px;bottom:14px;display:flex;flex-direction:column;gap:6px;">
-              <div style="font-size:15px;letter-spacing:0.04em;">{{ v.label }}</div>
-              <div style="display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(82% 0 0);">
+              <div style="font-size:16px;letter-spacing:0.04em;">{{ v.label }}</div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(82% 0 0);">
                 <div style="width:0;height:0;border-left:7px solid currentColor;border-top:4px solid transparent;border-bottom:4px solid transparent;"></div>
                 Reproducir
               </div>
@@ -146,7 +146,7 @@
     <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:40;background:rgba(10,10,10,0.96);display:flex;align-items:center;justify-content:center;padding:24px;">
       <div onClick="{{ stop }}" style="width:min(100%, calc((100vh - 170px) * 16 / 9), 1500px);display:flex;flex-direction:column;gap:16px;">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
-          <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(22px,2.6vw,32px);">{{ modalLabel }}</div>
+          <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(24px,2.6vw,34px);">{{ modalLabel }}</div>
           <div onClick="{{ closeModal }}" style="cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid #535353;display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;">✕</div>
         </div>
         <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;">
@@ -165,8 +165,8 @@
     <div data-split style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;max-width:1240px;margin:0 auto;">
       <div style="display:flex;flex-direction:column;gap:28px;">
         <div data-reveal style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">03 / Para siempre</div>
-        <div data-reveal style="font-family:'Romie',serif;font-size:clamp(44px,6vw,80px);line-height:1.02;">Guárdenla <em>bien</em>.</div>
-        <div data-reveal style="font-size:17px;line-height:1.7;color:#353535;max-width:480px;text-wrap:pretty;">Los enlaces de descarga no duran para siempre. Descarguen los archivos originales y guarden una copia en su computadora y otra en un disco o en la nube.</div>
+        <div data-reveal style="font-family:'Romie',serif;font-size:clamp(44px,6vw,84px);line-height:1.02;">Guárdenla <em>bien</em>.</div>
+        <div data-reveal style="font-size:16px;line-height:1.7;color:#353535;max-width:480px;text-wrap:pretty;">Los enlaces de descarga no duran para siempre. Descarguen los archivos originales y guarden una copia en su computadora y otra en un disco o en la nube.</div>
         <div data-reveal style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#353535;">Disponible hasta {{ expires }}</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:40px;padding-top:8px;">
@@ -180,9 +180,9 @@
           <div style="border-top:1px solid oklch(78% 0 0);"></div>
         </div>
         <div data-reveal style="display:flex;flex-direction:column;gap:20px;max-width:380px;">
-          <a href="{{ downloadUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;background:#101010;color:#EBEBEB;padding:20px 24px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Descargar archivos <span style="font-size:18px;">↓</span></a>
+          <a href="{{ downloadUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;background:#101010;color:#EBEBEB;padding:20px 24px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Descargar archivos <span style="font-size:clamp(18px,1.7vw,22px);">↓</span></a>
           <sc-if value="{{ guideUrl }}" hint-placeholder-val="{{ true }}">
-            <a href="{{ guideUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:0 0 14px;border-bottom:1px solid #101010;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Ver guía de descarga <span style="font-size:18px;">↗</span></a>
+            <a href="{{ guideUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:0 0 14px;border-bottom:1px solid #101010;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Ver guía de descarga <span style="font-size:clamp(18px,1.7vw,22px);">↗</span></a>
           </sc-if>
         </div>
       </div>
@@ -197,13 +197,13 @@
         <div data-reveal style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">{{ reviewKicker }}</div>
         <sc-if value="{{ reviewFormVisible }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-direction:column;align-items:center;gap:28px;width:100%;">
-            <div data-reveal style="font-family:'Romie',serif;font-style:italic;font-size:clamp(48px,7vw,96px);line-height:1.02;max-width:900px;text-wrap:balance;">¿Nos cuentan qué sintieron?</div>
-            <div data-reveal style="font-size:17px;line-height:1.7;color:oklch(82% 0 0);max-width:520px;text-wrap:pretty;">Si disfrutaron su película, una reseña nos ayuda a que más parejas nos encuentren. Las leemos todas.</div>
+            <div data-reveal style="font-family:'Romie',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:1.02;max-width:900px;text-wrap:balance;">¿Nos cuentan qué sintieron?</div>
+            <div data-reveal style="font-size:16px;line-height:1.7;color:oklch(82% 0 0);max-width:520px;text-wrap:pretty;">Si disfrutaron su película, una reseña nos ayuda a que más parejas nos encuentren. Las leemos todas.</div>
             <form data-reveal onSubmit="{{ onReviewSubmit }}" style="width:min(100%,560px);display:flex;flex-direction:column;gap:26px;margin-top:16px;text-align:left;">
               <div style="display:flex;flex-direction:column;gap:12px;align-items:center;">
                 <div style="display:flex;gap:6px;">
                   <sc-for list="{{ stars }}" as="st" hint-placeholder-count="5">
-                    <div onClick="{{ st.set }}" onMouseEnter="{{ st.hover }}" onMouseLeave="{{ st.leave }}" role="button" aria-label="{{ st.label }}" style="cursor:pointer;font-size:36px;line-height:1;padding:4px;color:{{ st.color }};transition:color .15s ease;">★</div>
+                    <div onClick="{{ st.set }}" onMouseEnter="{{ st.hover }}" onMouseLeave="{{ st.leave }}" role="button" aria-label="{{ st.label }}" style="cursor:pointer;font-size:clamp(24px,2.6vw,34px);line-height:1;padding:4px;color:{{ st.color }};transition:color .15s ease;">★</div>
                   </sc-for>
                 </div>
                 <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(70% 0 0);min-height:14px;">{{ ratingLabel }}</div>
@@ -212,7 +212,7 @@
                 <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Su reseña</span>
                 <textarea rows="6" value="{{ reviewText }}" onChange="{{ onReviewText }}" placeholder="Cuéntennos cómo fue trabajar con nosotros y qué sintieron al ver su película…" style="width:100%;resize:vertical;background:#1a1a1a;border:1px solid #353535;color:#EBEBEB;padding:16px;font-family:'DM Sans';font-size:16px;line-height:1.6;outline:none;"></textarea>
               </label>
-              <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:14px;line-height:1.5;color:oklch(85% 0 0);">
+              <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:13px;line-height:1.5;color:oklch(85% 0 0);">
                 <input type="checkbox" checked="{{ publishOk }}" onChange="{{ onPublishOk }}" style="width:18px;height:18px;margin:2px 0 0;accent-color:#EBEBEB;flex:none;"/>
                 <span>Autorizamos a Cinema Norte a publicar esta reseña con nuestros nombres en su sitio web.</span>
               </label>
@@ -223,10 +223,10 @@
         </sc-if>
         <sc-if value="{{ reviewSent }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
-            <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(48px,7vw,96px);line-height:1.02;">Gracias.</div>
-            <div style="font-size:17px;line-height:1.7;color:oklch(82% 0 0);max-width:480px;text-wrap:pretty;">Recibimos su reseña. Fue un honor contar su historia.</div>
+            <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:1.02;">Gracias.</div>
+            <div style="font-size:16px;line-height:1.7;color:oklch(82% 0 0);max-width:480px;text-wrap:pretty;">Recibimos su reseña. Fue un honor contar su historia.</div>
             <sc-if value="{{ hasGoogle }}" hint-placeholder-val="{{ false }}">
-              <a href="{{ reviewUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:40px;width:min(100%,340px);margin-top:12px;padding:0 0 14px;border-bottom:1px solid #EBEBEB;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">También en Google <span style="font-size:18px;">↗</span></a>
+              <a href="{{ reviewUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:40px;width:min(100%,340px);margin-top:12px;padding:0 0 14px;border-bottom:1px solid #EBEBEB;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">También en Google <span style="font-size:clamp(18px,1.7vw,22px);">↗</span></a>
             </sc-if>
           </div>
         </sc-if>
