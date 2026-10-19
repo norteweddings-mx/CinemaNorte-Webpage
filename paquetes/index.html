@@ -87,7 +87,7 @@
           <div data-reveal style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">Nuestro trabajo</div>
           <div data-reveal style="font-family:'Romie',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:1;">Algunas historias</div>
         </div>
-        <div data-reveal style="font-size:16px;line-height:1.7;color:oklch(80% 0 0);max-width:400px;">Así se ven las películas que entregamos. Denle play con volumen.</div>
+        <div data-reveal style="font-size:16px;line-height:1.7;color:oklch(80% 0 0);max-width:400px;">Así se ven los films que entregamos. Denle play con volumen.</div>
       </div>
       <div data-cards style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
         <sc-for list="{{ films }}" as="fm" hint-placeholder-count="3">
@@ -112,7 +112,7 @@
           <div data-reveal style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">01 / Paquetes</div>
           <div data-reveal style="font-family:'Romie',serif;font-size:clamp(44px,6vw,84px);line-height:1;">Elijan su <em>historia</em>.</div>
         </div>
-        <div data-reveal style="font-size:16px;line-height:1.7;color:#353535;max-width:440px;">Todos los paquetes incluyen una galería online personalizada para ver y descargar su película.</div>
+        <div data-reveal style="font-size:16px;line-height:1.7;color:#353535;max-width:440px;">Todos los paquetes incluyen una galería online personalizada para ver y descargar su film.</div>
       </div>
       <div data-cards style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;">
         <sc-for list="{{ packages }}" as="pk" hint-placeholder-count="3">
@@ -256,9 +256,9 @@ const SB_URL = "https://jrkemmxsjdjgautqbjvn.supabase.co";
 const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impya2VtbXhzamRqZ2F1dHFianZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5OTk4MjEsImV4cCI6MjEwNzU3NTgyMX0.dCwpAwrCAjs725LIQfRURr6RmU2m2FzxCi1OLrXwmoU";
 const W3F = "d2425ae0-33de-4536-b093-91a961216e8b";
 const PACKAGES = [
-  { id: "basico", name: "Paquete Básico", price: 10000, items: ["Cobertura de aprox. 6 horas", "Galería online privada para ver y descargar", "Película documental de aprox. 4 a 5 min"] },
-  { id: "estandar", name: "Paquete Estándar", price: 13000, items: ["Cobertura de aprox. 8 horas", "Galería online privada para ver y descargar", "Película documental de aprox. 7 a 8 min", "Highlight cinematográfico de aprox. 1 a 3 min", "Reel vertical para redes de aprox. 30 s", "Tomas aéreas con drone"] },
-  { id: "allinone", name: "Paquete All in One", price: 18000, items: ["Cobertura de todo el día, aprox. 10 horas", "Galería online privada para ver y descargar", "Película documental de aprox. 15 min", "Highlight cinematográfico de aprox. 1 a 3 min", "Reel vertical para redes de aprox. 1 min", "Tomas aéreas con drone"] },
+  { id: "basico", name: "Paquete Básico", price: 10000, items: ["Cobertura de aprox. 6 horas", "Galería online privada para ver y descargar", "Film documental de aprox. 4 a 5 min"] },
+  { id: "estandar", name: "Paquete Estándar", price: 13000, items: ["Cobertura de aprox. 8 horas", "Galería online privada para ver y descargar", "Film documental de aprox. 7 a 8 min", "Highlight cinematográfico de aprox. 1 a 3 min", "Reel vertical para redes de aprox. 30 s", "Tomas aéreas con drone"] },
+  { id: "allinone", name: "Paquete All in One", price: 18000, items: ["Cobertura de todo el día, aprox. 10 horas", "Galería online privada para ver y descargar", "Film documental de aprox. 15 min", "Highlight cinematográfico de aprox. 1 a 3 min", "Reel vertical para redes de aprox. 1 min", "Tomas aéreas con drone"] },
 ];
 const FILMS = [
   { title: "Perla & Ricardo", year: "2026", url: "https://galleries.vidflow.co/videos/scxo5rx8" },
@@ -279,7 +279,7 @@ const TERMS = [
   "Aceptamos pago en efectivo o transferencia bancaria.",
 ];
 const NOTES = [
-  "Los precios pueden cambiar con el tiempo; los de esta propuesta valen hasta la fecha de vigencia.",
+  "Los precios pueden cambiar con el tiempo.",
   "Entregamos el material final en 6 a 8 semanas aprox.",
   "Si el evento es fuera de Torreón, Gómez Palacio o Lerdo, se suman los viáticos al total.",
 ];

@@ -78,14 +78,14 @@
       <div data-hide-m>Entrega privada</div>
     </div>
     <div data-pad style="position:absolute;left:0;right:0;bottom:0;padding:0 56px 56px;display:flex;flex-direction:column;gap:22px;">
-      <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">Una película de Cinema Norte</div>
+      <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">Un film de Cinema Norte</div>
       <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(56px,9vw,140px);line-height:0.95;letter-spacing:-0.01em;text-wrap:balance;">{{ couple }}</div>
       <div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;border-top:1px solid rgba(235,235,235,0.35);padding-top:18px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;">
         <div style="display:flex;flex-wrap:wrap;gap:8px 32px;">
           <span>{{ date }}</span>
           <span>{{ venue }}</span>
         </div>
-        <a href="#pelicula" onClick="{{ goFilm }}" style="display:flex;align-items:center;gap:10px;">Ver su película <span style="font-size:16px;">↓</span></a>
+        <a href="#pelicula" onClick="{{ goFilm }}" style="display:flex;align-items:center;gap:10px;">Ver su film <span style="font-size:16px;">↓</span></a>
       </div>
     </div>
   </section>
@@ -101,13 +101,13 @@
     </div>
   </section>
 
-  <section id="pelicula" data-screen-label="02 La película" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;gap:48px;overflow:hidden;background:#101010;color:#EBEBEB;">
+  <section id="pelicula" data-screen-label="02 El film" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;gap:48px;overflow:hidden;background:#101010;color:#EBEBEB;">
     <div style="position:absolute;inset:0;background:#101010 center/cover no-repeat;background-image:{{ backdropBg }};transition:background-image .6s ease;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(16,16,16,0.85) 0%, rgba(16,16,16,0.35) 55%, rgba(16,16,16,0.15) 100%);"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(16,16,16,0.4) 0%, rgba(16,16,16,0) 30%, rgba(16,16,16,0) 50%, rgba(16,16,16,0.9) 100%);"></div>
 
     <div data-pad style="position:relative;padding:32px 56px 0;display:flex;justify-content:space-between;gap:16px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">
-      <div>02 / La película</div>
+      <div>02 / El film</div>
       <div data-hide-m>{{ videoCount }} videos</div>
     </div>
 
@@ -198,7 +198,7 @@
         <sc-if value="{{ reviewFormVisible }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-direction:column;align-items:center;gap:28px;width:100%;">
             <div data-reveal style="font-family:'Romie',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:1.02;max-width:900px;text-wrap:balance;">¿Nos cuentan qué sintieron?</div>
-            <div data-reveal style="font-size:16px;line-height:1.7;color:oklch(82% 0 0);max-width:520px;text-wrap:pretty;">Si disfrutaron su película, una reseña nos ayuda a que más parejas nos encuentren. Las leemos todas.</div>
+            <div data-reveal style="font-size:16px;line-height:1.7;color:oklch(82% 0 0);max-width:520px;text-wrap:pretty;">Si disfrutaron su film, una reseña nos ayuda a que más parejas nos encuentren. Las leemos todas.</div>
             <form data-reveal onSubmit="{{ onReviewSubmit }}" style="width:min(100%,560px);display:flex;flex-direction:column;gap:26px;margin-top:16px;text-align:left;">
               <div style="display:flex;flex-direction:column;gap:12px;align-items:center;">
                 <div style="display:flex;gap:6px;">
@@ -210,7 +210,7 @@
               </div>
               <label style="display:flex;flex-direction:column;gap:10px;">
                 <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Su reseña</span>
-                <textarea rows="6" value="{{ reviewText }}" onChange="{{ onReviewText }}" placeholder="Cuéntennos cómo fue trabajar con nosotros y qué sintieron al ver su película…" style="width:100%;resize:vertical;background:#1a1a1a;border:1px solid #353535;color:#EBEBEB;padding:16px;font-family:'DM Sans';font-size:16px;line-height:1.6;outline:none;"></textarea>
+                <textarea rows="6" value="{{ reviewText }}" onChange="{{ onReviewText }}" placeholder="Cuéntennos cómo fue trabajar con nosotros y qué sintieron al ver su film…" style="width:100%;resize:vertical;background:#1a1a1a;border:1px solid #353535;color:#EBEBEB;padding:16px;font-family:'DM Sans';font-size:16px;line-height:1.6;outline:none;"></textarea>
               </label>
               <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:13px;line-height:1.5;color:oklch(85% 0 0);">
                 <input type="checkbox" checked="{{ publishOk }}" onChange="{{ onPublishOk }}" style="width:18px;height:18px;margin:2px 0 0;accent-color:#EBEBEB;flex:none;"/>
@@ -240,7 +240,7 @@
   </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;coupleNames&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Andrea &amp; Rodrigo&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;date&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;14 · 02 · 2026&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;venue&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hacienda La Joya, Torreón&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;password&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;coverImageUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Portada&quot;},&quot;loopVideoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Portada&quot;},&quot;letterLead&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Gracias por dejarnos estar tan cerca. Aquí está su día, tal como lo vivieron.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;letterBody&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Escríbanles aquí un mensaje personal: algo que recuerden del día, un momento que les tocó, lo que sintieron al editar su película.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;signature&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Equipo Cinema Norte&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;filmIntro&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Busquen un buen momento, apaguen las luces y denle play. Esto es para verlo juntos.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;downloadUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;guideUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;expires&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;14 · 05 · 2026&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;reviewUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;galleryVideos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Teaser | https://galleries.vidflow.co/videos/scxo5rx8\nResumen | https://galleries.vidflow.co/videos/wq7kv7xq\nFilm | https://galleries.vidflow.co/videos/2584c1d2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Videos (VidFlow)&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;coupleNames&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Andrea &amp; Rodrigo&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;date&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;14 · 02 · 2026&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;venue&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hacienda La Joya, Torreón&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;password&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pareja&quot;},&quot;coverImageUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Portada&quot;},&quot;loopVideoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Portada&quot;},&quot;letterLead&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Gracias por dejarnos estar tan cerca. Aquí está su día, tal como lo vivieron.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;letterBody&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Escríbanles aquí un mensaje personal: algo que recuerden del día, un momento que les tocó, lo que sintieron al editar su film.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;signature&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Equipo Cinema Norte&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;filmIntro&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Busquen un buen momento, apaguen las luces y denle play. Esto es para verlo juntos.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Textos&quot;},&quot;downloadUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;guideUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;expires&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;14 · 05 · 2026&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;reviewUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Enlaces&quot;},&quot;galleryVideos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Highlight | https://galleries.vidflow.co/videos/scxo5rx8\nResumen | https://galleries.vidflow.co/videos/wq7kv7xq\nFilm | https://galleries.vidflow.co/videos/2584c1d2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Videos (VidFlow)&quot;}}">
 const SB_URL = "https://jrkemmxsjdjgautqbjvn.supabase.co";
 const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impya2VtbXhzamRqZ2F1dHFianZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5OTk4MjEsImV4cCI6MjEwNzU3NTgyMX0.dCwpAwrCAjs725LIQfRURr6RmU2m2FzxCi1OLrXwmoU";
 const imgUrl = (u) => {
@@ -251,7 +251,7 @@ const imgUrl = (u) => {
   if (d) return d[1] + "?raw=1";
   return u;
 };
-const DEFAULT_GALLERY = `Teaser | https://galleries.vidflow.co/videos/scxo5rx8
+const DEFAULT_GALLERY = `Highlight | https://galleries.vidflow.co/videos/scxo5rx8
 Resumen | https://galleries.vidflow.co/videos/wq7kv7xq
 Film | https://galleries.vidflow.co/videos/2584c1d2`;
 
@@ -428,7 +428,7 @@ class Component extends DCLogic {
       venue: p.venue ?? "Hacienda La Joya, Torreón",
       signature: p.signature ?? "Equipo Cinema Norte",
       letterLead: p.letterLead ?? "Gracias por dejarnos estar tan cerca. Aquí está su día, tal como lo vivieron.",
-      letterBody: p.letterBody ?? "Escríbanles aquí un mensaje personal: algo que recuerden del día, un momento que les tocó, lo que sintieron al editar su película.",
+      letterBody: p.letterBody ?? "Escríbanles aquí un mensaje personal: algo que recuerden del día, un momento que les tocó, lo que sintieron al editar su film.",
       filmIntro: p.filmIntro ?? "Busquen un buen momento, apaguen las luces y denle play. Esto es para verlo juntos.",
       expires: p.expires ?? "14 · 05 · 2026",
       downloadUrl: p.downloadUrl || "#",
