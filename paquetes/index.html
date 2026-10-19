@@ -219,7 +219,7 @@
           </sc-if>
           <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;flex-direction:column;gap:24px;">
-              <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:1;">¡Gracias!</div>
+              <div style="font-family:'Romie',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:1;">Gracias.</div>
               <div style="font-size:16px;line-height:1.7;color:oklch(84% 0 0);max-width:440px;">Recibimos su confirmación del {{ chosenName }}. En menos de 24 horas les enviamos los datos para el anticipo de {{ deposit }}.</div>
               <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:0 0 14px;border-bottom:1px solid #EBEBEB;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;max-width:360px;">Escribirnos por WhatsApp <span style="font-size:16px;">↗</span></a>
             </div>
@@ -274,15 +274,14 @@ const ADDONS = [
   { id: "drone", name: "Tomas aéreas con drone", detail: "Ya incluido en Estándar y All in One", price: 1500, notWith: ["estandar", "allinone"] },
 ];
 const TERMS = [
-  "Es requerido un depósito no reembolsable del 25 % para separar la fecha.",
-  "El balance restante debe ser cubierto 2 semanas antes del evento.",
-  "Los pagos pueden realizarse en efectivo o transferencia bancaria.",
+  "Para separar la fecha pedimos un anticipo del 25 %, no reembolsable.",
+  "El resto se liquida 2 semanas antes del evento.",
+  "Aceptamos pago en efectivo o transferencia bancaria.",
 ];
 const NOTES = [
-  "Los precios están sujetos a cambios sin previo aviso.",
-  "El tiempo estimado de entrega del material final es de 6 a 8 semanas.",
-  "En caso de que el evento se realice fuera de Torreón, se añadirá el costo de viáticos al precio total.",
-  "Los precios mostrados no incluyen IVA.",
+  "Los precios pueden cambiar con el tiempo; los de esta propuesta valen hasta la fecha de vigencia.",
+  "Entregamos el material final en 6 a 8 semanas aprox.",
+  "Si el evento es fuera de Torreón, Gómez Palacio o Lerdo, se suman los viáticos al total.",
 ];
 const toISO = (t) => {
   t = String(t || "").trim();
@@ -460,7 +459,7 @@ class Component extends DCLogic {
       lines,
       total: money(total),
       deposit: money(deposit),
-      travelNote: travel ? "" : " Fuera de Torreón se suman viáticos.",
+      travelNote: travel ? "" : " Fuera de Torreón, Gómez Palacio y Lerdo se suman viáticos.",
       terms: TERMS,
       notes: NOTES,
       formVisible: !this.state.sent,
