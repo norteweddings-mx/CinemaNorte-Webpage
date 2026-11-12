@@ -1,3 +1,8 @@
 {
-  "crons": [{ "path": "/api/ping", "schedule": "0 12 * * *" }]
+  "crons": [{ "path": "/api/ping", "schedule": "0 12 * * *" }],
+  "rewrites": [
+    { "source": "/portafolio", "destination": "/index.html" },
+    { "source": "/preguntas", "destination": "/index.html" },
+    { "source": "/contacto", "destination": "/index.html" }
+  ]
 }
