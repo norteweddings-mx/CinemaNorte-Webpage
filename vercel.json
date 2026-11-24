@@ -1,6 +1,8 @@
 {
   "crons": [{ "path": "/api/ping", "schedule": "0 12 * * *" }],
   "rewrites": [
+    { "source": "/paquetes/:slug", "destination": "/paquetes/index.html" },
+    { "source": "/entrega/:slug", "destination": "/entrega/index.html" },
     { "source": "/portafolio", "destination": "/index.html" },
     { "source": "/preguntas", "destination": "/index.html" },
     { "source": "/contacto", "destination": "/index.html" }

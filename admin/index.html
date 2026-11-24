@@ -711,21 +711,21 @@ class Component extends DCLogic {
     });
     const setVideo = (i, k) => (e) => { const val = e.target.value; this.patch((x) => { x.videos = x.videos.map((v, n) => (n === i ? { ...v, [k]: val } : v)); return x; }); };
     const st = this.state.status;
-    const shareUrl = base + "?" + (c.slug || c.id);
+    const shareUrl = base.replace(/\/?$/, "/") + (c.slug || c.id);
 
     const tab = this.state.tab || "entregas";
     const allR = this.state.reviews || [];
     const pc = this.pCur();
     const pEnc = (c) => { if (!c) return ""; const { id, slug, slugTouched, ...d } = c; d.whatsapp = (this.state.waNumber || "528147924877").replace(/\D/g, "").replace(/^(\d{10})$/, "52$1"); return btoa(unescape(encodeURIComponent(JSON.stringify(d)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); };
     const pBase = base.replace(/entrega\/?$/, "paquetes/");
-    const pShare = pc ? pBase + "?" + (pc.slug || pc.id) : "";
+    const pShare = pc ? pBase.replace(/\/?$/, "/") + (pc.slug || pc.id) : "";
     const leadsL = this.state.leads || [];
     const resv = this.state.reservas || [];
     const pRes = pc ? resv.find((r) => r.propuesta_slug === pc.slug) : null;
     const pending = allR.filter((r) => !r.approved).length;
     const rf = this.state.reviewFilter || "pendientes";
     const shownR = allR.filter((r) => (rf === "todas" ? true : rf === "pendientes" ? !r.approved : r.approved));
-    const reviewLink = shareUrl + "&resena";
+    const reviewLink = shareUrl + "?resena";
     const copy = (text, key) => {
       const done = () => { this.setState({ [key]: true }); setTimeout(() => this.setState({ [key]: false }), 2000); };
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => prompt("Copia el enlace:", text));

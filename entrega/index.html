@@ -284,11 +284,12 @@ class Component extends DCLogic {
   };
   slug() {
     const q = location.search.slice(1);
-    if (!q) return "";
     const m = q.match(/(?:^|&)e=([^&]+)/);
     if (m) return decodeURIComponent(m[1]).trim().toLowerCase();
     const seg = q.split("&").find((x) => x && !x.includes("=") && x.toLowerCase() !== "resena");
-    return seg ? decodeURIComponent(seg).trim().toLowerCase() : "";
+    if (seg) return decodeURIComponent(seg).trim().toLowerCase();
+    const p = location.pathname.split("/").filter(Boolean); // ["entrega", "perla-ricardo"]
+    return p[1] && p[1] !== "index.html" ? decodeURIComponent(p[1]).trim().toLowerCase() : "";
   }
   async loadRemote(slug) {
     this.setState({ remote: "loading" });

@@ -338,7 +338,9 @@ class Component extends DCLogic {
   slug() {
     const q = location.search.slice(1);
     const seg = q.split("&").find((x) => x && !x.includes("="));
-    return seg ? decodeURIComponent(seg).toLowerCase() : "";
+    if (seg) return decodeURIComponent(seg).toLowerCase();
+    const p = location.pathname.split("/").filter(Boolean); // ["paquetes", "perla-ricardo"]
+    return p[1] && p[1] !== "index.html" ? decodeURIComponent(p[1]).toLowerCase() : "";
   }
   async loadRemote(slug) {
     this.setState({ remote: "loading" });
